@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+    {% block body %}
+<form action="/colored_countries">
+
+    {% for item in countries %}
+    <input id="{{item[1]}}" type="checkbox" name="c" value="{{item[1]}}">
+    <label for="{{item[1]}}"> {{ item[0] }}</label> <br>
+    {% endfor %}
+    <br><br>
+<input type="submit" value="OK">
+
+</form>
+
+    {% endblock %}
