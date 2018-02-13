@@ -4,20 +4,21 @@
 
 
     {% for line in countries %}
-    <div>
+    <div class="row">
         {% for country in line %}
-        <div>
-            <input id="{{country.id}}" type="checkbox" name="c" value="{{country.id}}">
-            <label for="{{country.id}}"> {{country.name}}</label> <br>
+        {% if country %}
+        <div class="col-3">
+            <input class="form-check-input" id="{{country.id}}" type="checkbox" name="c" value="{{country.id}}">
+            <label class="form-check-label" for="{{country.id}}"> {{country.name}}</label> <br>
 
         </div>
-
+        {% endif %}
         {% endfor %}
     </div>
 
     {% endfor %}
     <br>
-    <input type="submit" value="OK">
+    <button type="submit" class="btn btn-primary">OK</button>
 
 </form>
 
