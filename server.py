@@ -6,11 +6,16 @@ app = Flask(__name__)
 def main():
     return render_template('index.html', text="Kate")
 
+import itertools
+def groups_of_countries(countries, items_in_group):
+    return list(itertools.zip_longest(*[iter(countries)] *items_in_group))
+
+
 @app.route("/list_of_countries")
 def list_of_countries():
     from map_drawer import list_of_countries_tree
 
-    countries = sorted(list_of_countries_tree("world.svg"), key=lambda x: x[0])
+    countries = sorted(list_of_countries_tree("world.svg"), key = lambda x: x[0])
 
     return render_template("list_of_countries.html",countries = countries)
 
