@@ -2,12 +2,22 @@
     {% block body %}
 <form action="/colored_countries">
 
-    {% for country in countries %}
-    <input id="{{country.id}}" type="checkbox" name="c" value="{{country.id}}">
-    <label for="{{country.id}}"> {{country.name}}</label> <br>
+
+    {% for line in countries %}
+    <div>
+        {% for country in line %}
+        <div>
+            <input id="{{country.id}}" type="checkbox" name="c" value="{{country.id}}">
+            <label for="{{country.id}}"> {{country.name}}</label> <br>
+
+        </div>
+
+        {% endfor %}
+    </div>
+
     {% endfor %}
-    <br><br>
-<input type="submit" value="OK">
+    <br>
+    <input type="submit" value="OK">
 
 </form>
 

@@ -15,7 +15,7 @@ def groups_of_countries(countries, items_in_group):
 def list_of_countries():
     from map_drawer import list_of_countries_tree, Country
 
-    countries = sorted(list_of_countries_tree("world.svg"), key = lambda x: x.name)
+    countries = groups_of_countries(sorted(list_of_countries_tree("world.svg"), key = lambda x: x.name), 4)
 
     return render_template("list_of_countries.html",countries = countries)
 
